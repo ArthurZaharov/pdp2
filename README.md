@@ -3,9 +3,9 @@
 
 Third-party service badges (if available)
 
-[![Build Status](https://semaphoreapp.com/api/v1/projects/31b68af8b073708a56e4e005bbcba2af4802816d/76140/shields_badge.png)](https://semaphoreapp.com/fs/rails-base)
-[![Test Coverage](https://codeclimate.com/github/fs/rails-base/badges/coverage.svg)](https://codeclimate.com/github/fs/rails-base)
-[![Code Climate](https://codeclimate.com/github/fs/rails-base.png)](https://codeclimate.com/github/fs/rails-base)
+[![Build Status](https://semaphoreapp.com/api/v1/projects/665573b7-d994-484e-a1ef-41201156fa38/303069/shields_badge.svg)](https://semaphoreapp.com/arthur-zaharov/personal-blog)
+[![Test Coverage](https://codeclimate.com/github/ArthurZaharov/personal-blog/badges/coverage.svg)](https://codeclimate.com/github/ArthurZaharov/personal-blog)
+[![Code Climate](https://codeclimate.com/github/ArthurZaharov/personal-blog/badges/gpa.svg)](https://codeclimate.com/github/ArthurZaharov/personal-blog)
 
 This is simple application. User can sign up, sign in, create and edit articles, leave comments to articles, observe all articles.
 -
@@ -63,12 +63,12 @@ Continuous Integration
 -
 
 CI service info and status (if available).
-Add a link to a project page on [Semaphore](http://semaphoreapp.com).
+Project page on [Semaphore](https://semaphoreapp.com/arthur-zaharov/personal-blog).
 
 Staging
 -
 
-Location and other info about staging servers.
+Staging server on [Heroku](https://morning-sea-2816.herokuapp.com)
 
 Production
 -
