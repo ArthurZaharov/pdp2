@@ -24,7 +24,7 @@ module Articles
     private
 
     def article_attributes
-      %i(title content)
+      %i(title content user_id)
     end
   end
 end
