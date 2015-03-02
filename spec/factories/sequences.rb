@@ -6,4 +6,8 @@ FactoryGirl.define do
   sequence :title do |n|
     "Title ##{n}"
   end
+
+  sequence :content do |n|
+    "Lorem ipsum #{n}"
+  end
 end

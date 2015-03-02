@@ -89,6 +89,12 @@ en:
         sign_up: 'Sign up'
         edit_profile: 'Edit profile'
 
+      article:
+        create: 'New article'
+
+    article:
+      create: 'Create article'
+
   time:
     formats:
       short_date: "%x"
