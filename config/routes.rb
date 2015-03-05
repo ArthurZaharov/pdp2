@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :articles
 
-  root to: 'dashboard#index'
+  root to: 'articles#index'
 end
