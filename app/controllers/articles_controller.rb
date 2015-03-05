@@ -1,10 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i(new create)
 
+  expose(:articles)
   expose(:article, attributes: :article_params)
-
-  def index
-  end
 
   def create
     if article.save
