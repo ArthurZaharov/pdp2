@@ -76,5 +76,5 @@ Rails.application.configure do
 
   # Application specific options
   #
-  config.host = 'morning-sea-2816.herokuapp.com/'
+  config.host = 'morning-sea-2816.herokuapp.com'
 end
