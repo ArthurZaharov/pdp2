@@ -19,4 +19,9 @@ feature 'Main page' do
     expect(main_page).to have_text other_article.title
     expect(main_page).to have_text other_article.content
   end
+
+  scenario 'contains properly links to articles' do
+    expect(main_page).to have_link article.title, href: article_path(article)
+    expect(main_page).to have_link other_article.title, href: article_path(other_article)
+  end
 end
