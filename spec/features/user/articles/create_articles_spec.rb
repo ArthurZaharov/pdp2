@@ -19,4 +19,9 @@ feature 'Sign in user' do
   scenario 'has create new article link' do
     expect(new_article_page.top_bar).to have_create_new_article_link
   end
+
+  scenario 'can not create article with invalid data' do
+    new_article_page.create(title: '')
+    expect(new_article_page).to have_validation_error_alert
+  end
 end
