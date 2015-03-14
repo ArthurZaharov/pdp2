@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
 
   def create
     if article.save
-      redirect_to articles_path
+      redirect_to articles_path, notice: 'Article successfully created!'
     else
       render :new
     end
