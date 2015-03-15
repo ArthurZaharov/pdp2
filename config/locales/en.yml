@@ -94,6 +94,7 @@ en:
 
     article:
       create: 'Create article'
+      edit: 'Edit article'
 
   time:
     formats:
