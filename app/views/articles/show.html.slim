@@ -1,2 +1,8 @@
 .container
-  = render article
+  .article
+    .row
+      h2 = article.title
+      - if current_user && article.user == current_user
+        = link_to t('app.article.edit'), edit_article_path(article), class: 'button'
+    .row
+      = article.content
