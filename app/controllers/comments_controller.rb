@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
-  # before_action :authenticate_user!, only: %i(new create edit update)
-  # before_action :validate_user, only: %i(edit update)
+  before_action :authenticate_user!, only: :create
 
   expose(:comment, attributes: :comment_params)
   expose(:article) { comment.article }
@@ -18,9 +17,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :user_id, :article_id)
   end
-
-  # def validate_user
-  #   return if article.user == current_user
-  #   redirect_to article_path(article), alert: 'Access denied.'
-  # end
 end
