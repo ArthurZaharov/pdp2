@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
 
   expose(:articles)
   expose(:article, attributes: :article_params)
+  expose(:comment) { article.comments.build }
 
   def create
     if article.save

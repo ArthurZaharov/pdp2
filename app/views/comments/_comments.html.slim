@@ -1,0 +1,5 @@
+- if comments.any?
+  h4 Comments
+  - comments.each do |comment|
+    .comment
+      = comment.content
