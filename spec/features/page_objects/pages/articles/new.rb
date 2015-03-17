@@ -16,16 +16,10 @@ module Articles
     def create(options = {})
       fill_form(
         :article,
-        attributes_for(:article).slice(*article_attributes).merge(options)
+        attributes_for(:article).merge(options)
       )
 
       new_article_button.click
-    end
-
-    private
-
-    def article_attributes
-      %i(title content user_id)
     end
   end
 end

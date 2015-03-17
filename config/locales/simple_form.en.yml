@@ -24,3 +24,11 @@ en:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
 
+    labels:
+      comment:
+        content: 'Write your awesome comment'
+
+  helpers:
+    submit:
+      comment:
+        create: 'Add Comment'

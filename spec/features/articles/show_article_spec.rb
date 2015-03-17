@@ -23,6 +23,10 @@ feature 'Article page' do
     scenario 'does not have edit link' do
       expect(article_page).to_not have_edit_article_link
     end
+
+    scenario 'does not have add comment button' do
+      expect(article_page).to_not have_create_comment_button
+    end
   end
 
   context 'for sign in user' do
@@ -31,16 +35,20 @@ feature 'Article page' do
     before do
       login_page.load
       login_page.sign_in(user.email, '123456')
+      article_page.load(id: article.id)
     end
 
     scenario 'have edit link for owned article' do
-      article_page.load(id: article.id)
       expect(article_page).to have_edit_article_link
     end
 
     scenario 'does not have edit link for other article' do
       article_page.load(id: other_article.id)
       expect(article_page).to_not have_edit_article_link
+    end
+
+    scenario 'have add comment button' do
+      expect(article_page).to have_create_comment_button
     end
   end
 end
