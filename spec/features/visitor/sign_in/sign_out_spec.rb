@@ -4,7 +4,7 @@ feature 'Sign out' do
   let(:user) { create :user, :confirmed }
 
   let(:login_page) { Devise::Sessions::New.new }
-  let(:index_page) { Dashboard::Index.new }
+  let(:index_page) { Articles::Index.new }
 
   before(:each) do
     login_page.load

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Guest user' do
-  let!(:article) { create :article }
+  let(:article) { create :article }
   let!(:comment) { create :comment, article: article }
 
   let(:article_page) { Articles::Show.new }

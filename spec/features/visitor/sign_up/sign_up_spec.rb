@@ -5,7 +5,7 @@ feature 'Sign up' do
 
   let(:sign_up_page) { Devise::Registrations::New.new }
   let(:resend_confirmation_page) { Devise::Confirmations::New.new }
-  let(:index_page) { Dashboard::Index.new }
+  let(:index_page) { Articles::Index.new }
 
   before(:each) do
     sign_up_page.load
