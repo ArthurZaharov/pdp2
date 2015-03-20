@@ -2,4 +2,4 @@
   h4 Comments
   - comments.each do |comment|
     .comment
-      = comment.content
+      = simple_format(comment.content)

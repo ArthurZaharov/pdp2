@@ -2,4 +2,4 @@
   .row
     h2 = link_to article.title, article
   .row
-    = article.content
+    = simple_format(article.content)

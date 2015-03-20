@@ -5,7 +5,7 @@
       - if current_user && article.user == current_user
         = link_to t('app.article.edit'), edit_article_path(article), class: 'button'
     .row
-      p = article.content
+      p = simple_format(article.content)
     .row
       .comments
         = render 'comments/comments', comments: article.comments
