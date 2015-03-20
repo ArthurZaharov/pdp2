@@ -1,6 +1,6 @@
 module Articles
   class Index < SitePrism::Page
-    set_url '/'
+    set_url '/articles'
 
     section :top_bar, TopBar, '.top-bar'
 

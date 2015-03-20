@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Sign in user' do
+feature 'Signed in user' do
   let(:user) { create :user, :confirmed }
 
   let(:login_page) { Devise::Sessions::New.new }
