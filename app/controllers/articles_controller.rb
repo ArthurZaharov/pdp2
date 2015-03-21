@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i(new create edit update)
   before_action :validate_user, only: %i(edit update)
 
-  expose(:articles)
+  expose(:articles) { Article.ordered.page(params[:page]) }
   expose(:article, attributes: :article_params)
   expose(:comment) { article.comments.build }
 

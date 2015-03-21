@@ -11,4 +11,14 @@
   &:last-child {
     border-bottom: none;
   }
+
+  h2 {
+    display: inline-block;
+  }
+
+  i {
+    font-size: 24px;
+    color: gray;
+    margin-left: 5px;
+  }
 }
