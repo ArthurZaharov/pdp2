@@ -1,3 +1,4 @@
 .comment
-  .author = comment.author
+  span.avatar = image_tag comment.user_avatar, size: '18'
+  span.author = comment.author
   = comment.content

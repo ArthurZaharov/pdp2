@@ -20,6 +20,11 @@ class ArticlePresenter < BasePresenter
            time_ago: time_ago_in_words(@article.created_at))
   end
 
+  def user_avatar
+    gravatar_id = Digest::MD5.hexdigest(@article.user.email).downcase
+    "http://gravatar.com/avatar/#{gravatar_id}.png"
+  end
+
   def comments
     CommentPresenter.wrap(@article.comments)
   end

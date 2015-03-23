@@ -1,6 +1,8 @@
 .article
   .row
     h2 = link_to article.title, article.unwrap
-    .author = article.author
+  .row
+    span.avatar = image_tag article.user_avatar, size: '18'
+    span.author = article.author
   .row
     = article.content
