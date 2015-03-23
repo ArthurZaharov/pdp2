@@ -24,8 +24,4 @@ class CommentPresenter < BasePresenter
     gravatar_id = Digest::MD5.hexdigest(@comment.user.email).downcase
     "http://gravatar.com/avatar/#{gravatar_id}.png"
   end
-
-  def unwrap
-    comment
-  end
 end
