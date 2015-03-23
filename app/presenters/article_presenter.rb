@@ -15,7 +15,9 @@ class ArticlePresenter < BasePresenter
   end
 
   def author
-    "#{@article.user.full_name} posted #{time_ago_in_words(@article.created_at)} ago"
+    I18n.t('app.article.author',
+           username: @article.user.full_name,
+           time_ago: time_ago_in_words(@article.created_at))
   end
 
   def comments

@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   expose(:comment, attributes: :comment_params)
 
   def create
-    flash.now[:notice] = 'Comment successfully created.' if comment.save
+    comment.save
     respond_with comment
   end
 

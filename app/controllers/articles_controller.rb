@@ -13,12 +13,12 @@ class ArticlesController < ApplicationController
   expose(:comments_presenter) { CommentPresenter.wrap(comments) }
 
   def create
-    flash[:notice] = 'Article successfully created!' if article.save
+    flash[:notice] = I18n.t('app.article.creation_successful') if article.save
     respond_with article
   end
 
   def update
-    flash[:notice] = 'Article successfully updated!' if article.save
+    flash[:notice] = I18n.t('app.article.update_successful') if article.save
     respond_with article
   end
 
