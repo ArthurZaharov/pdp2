@@ -1,5 +1,5 @@
 .article
   .row
-    h2 = link_to article.title, article
+    h2 = link_to article.title, article.unwrap
   .row
-    = simple_format(article.content)
+    = article.content

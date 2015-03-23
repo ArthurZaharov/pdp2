@@ -14,7 +14,6 @@ feature 'Signed in user' do
   end
 
   scenario 'can create comment with valid data' do
-    save_and_open_page
     # expect { article_page.create_comment }.to change { Comment.count }.by(1)
   end
 

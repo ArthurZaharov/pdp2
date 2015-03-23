@@ -6,7 +6,7 @@
         = link_to edit_article_path(article)
           i.fi-pencil
     .row
-      p = simple_format(article.content)
+      p = article_presenter.content
     .row
       .comments
         = render 'comments/comments', comments: article.comments

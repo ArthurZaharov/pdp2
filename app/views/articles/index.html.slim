@@ -1,5 +1,5 @@
 .container
-  = render articles
+  = render 'articles', articles: articles_presenter
 
   .paginator
     = paginate(articles)

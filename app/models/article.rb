@@ -4,5 +4,5 @@ class Article < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
-  scope :ordered, -> { order(created_at: :desc) }
+  default_scope { order(created_at: :desc) }
 end
