@@ -5,7 +5,9 @@
       - if current_user && article.user == current_user
         = link_to edit_article_path(article)
           i.fi-pencil
-      .author = article_presenter.author
+    .row
+      span.avatar = image_tag article_presenter.user_avatar, size: '18'
+      span.author = article_presenter.author
     .row
       p = article_presenter.content
     .row
