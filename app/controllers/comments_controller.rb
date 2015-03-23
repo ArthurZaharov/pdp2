@@ -1,15 +1,14 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: :create
 
+  respond_to :js, :html, :json
+
   expose(:comment, attributes: :comment_params)
   expose(:article) { comment.article }
 
   def create
-    if comment.save
-      redirect_to article, notice: 'Comment successfully created.'
-    else
-      render 'articles/show'
-    end
+    flash.now[:notice] = 'Comment successfully created.' if comment.save
+    respond_with comment
   end
 
   private

@@ -2,24 +2,20 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i(new create edit update)
   before_action :validate_user, only: %i(edit update)
 
+  respond_to :html, :json
+
   expose(:articles) { Article.ordered.page(params[:page]) }
   expose(:article, attributes: :article_params)
   expose(:comment) { article.comments.build }
 
   def create
-    if article.save
-      redirect_to articles_path, notice: 'Article successfully created!'
-    else
-      render :new
-    end
+    flash[:notice] = 'Article successfully created!' if article.save
+    respond_with article
   end
 
   def update
-    if article.save
-      redirect_to article, notice: 'Article successfully updated!'
-    else
-      render :edit
-    end
+    flash[:notice] = 'Article successfully updated!' if article.save
+    respond_with article
   end
 
   private
