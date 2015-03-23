@@ -10,5 +10,5 @@
     .row
       .comments
         = render 'comments/comments', comments: article.comments
-        - if current_user
-          = render 'comments/form'
+      - if current_user
+        = render 'comments/form'

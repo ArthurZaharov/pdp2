@@ -10,7 +10,6 @@ module Articles
     element :edit_article_link, 'i.fi-pencil'
     element :create_comment_button, 'input[value="Add Comment"]'
     element :validation_error_alert, '.error', text: "can't be blank"
-    element :create_successful_notice, '.notice', text: 'Comment successfully created.'
 
     def create_comment(options = {})
       fill_form(

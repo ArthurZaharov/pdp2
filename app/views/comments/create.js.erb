@@ -1,0 +1,15 @@
+$('.input').removeClass('error')
+$('small').remove('.error')
+
+<% if comment.errors.any? %>
+  <% comment.errors.each do |attr, message| %>
+    $('.input.comment_<%= attr %>')
+      .addClass('error')
+      .append('<small class="error"><%= comment.errors[attr].first %></small>')
+    <% end %>
+<% else %>
+  $('<%= escape_javascript(render comment) %>')
+    .appendTo('.comments')
+
+  $('#new_comment')[0].reset()
+<% end %>
