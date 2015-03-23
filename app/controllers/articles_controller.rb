@@ -4,11 +4,13 @@ class ArticlesController < ApplicationController
 
   respond_to :html, :json
 
-  expose(:articles) { Article.page(params[:page]) }
+  expose(:articles) { Article.includes(:user).page(params[:page]) }
   expose(:article, attributes: :article_params)
   expose(:comment) { article.comments.build }
+  expose(:comments) { article.comments.includes(:user) }
   expose(:articles_presenter) { ArticlePresenter.wrap(articles) }
   expose(:article_presenter) { ArticlePresenter.wrap(article) }
+  expose(:comments_presenter) { CommentPresenter.wrap(comments) }
 
   def create
     flash[:notice] = 'Article successfully created!' if article.save

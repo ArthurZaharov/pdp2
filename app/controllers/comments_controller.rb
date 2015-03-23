@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   respond_to :js, :html, :json
 
   expose(:comment, attributes: :comment_params)
-  expose(:article) { comment.article }
 
   def create
     flash.now[:notice] = 'Comment successfully created.' if comment.save

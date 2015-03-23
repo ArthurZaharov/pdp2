@@ -5,10 +5,11 @@
       - if current_user && article.user == current_user
         = link_to edit_article_path(article)
           i.fi-pencil
+      .author = article_presenter.author
     .row
       p = article_presenter.content
     .row
       .comments
-        = render 'comments/comments', comments: article.comments
+        = render 'comments/comments', comments: comments_presenter
       - if current_user
-        = render 'comments/form'
+        = render 'comments/form', comment: comment

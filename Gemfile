@@ -70,4 +70,5 @@ group :development do
   gem 'letter_opener'
   gem 'slim-rails'
   gem 'styleguides'
+  gem 'meta_request'
 end

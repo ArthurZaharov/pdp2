@@ -8,7 +8,7 @@ $('small').remove('.error')
       .append('<small class="error"><%= comment.errors[attr].first %></small>')
     <% end %>
 <% else %>
-  $('<%= escape_javascript(render comment) %>')
+  $('<%= escape_javascript(render "comment", comment: CommentPresenter.wrap(comment)) %>')
     .appendTo('.comments')
 
   $('#new_comment')[0].reset()

@@ -1,5 +1,6 @@
 .article
   .row
     h2 = link_to article.title, article.unwrap
+    .author = article.author
   .row
     = article.content
