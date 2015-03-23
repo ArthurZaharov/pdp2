@@ -15,7 +15,9 @@ class CommentPresenter < BasePresenter
   end
 
   def author
-    "#{@comment.user.full_name} posted #{time_ago_in_words(@comment.created_at)} ago"
+    I18n.t('app.comment.author',
+           username: @comment.user.full_name,
+           time_ago: time_ago_in_words(@comment.created_at))
   end
 
   def unwrap
