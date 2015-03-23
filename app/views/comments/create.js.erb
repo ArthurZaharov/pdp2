@@ -8,6 +8,8 @@ $('small').remove('.error')
       .append('<small class="error"><%= comment.errors[attr].first %></small>')
     <% end %>
 <% else %>
+  var comments_title = $('<h4>Comments</h4>')
+  $('.comments').not(':has(h4)').append(comments_title)
   $('<%= escape_javascript(render "comment", comment: CommentPresenter.wrap(comment)) %>')
     .appendTo('.comments')
 
