@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i(new create edit update)
-  before_action :validate_user, only: %i(edit update)
+  before_action :authorize!, only: %i(new create edit update)
 
   respond_to :html, :json
 
@@ -28,8 +28,8 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :content, :user_id)
   end
 
-  def validate_user
-    return if article.user == current_user
-    redirect_to article_path(article), alert: 'Access denied.'
+  def authorize!
+    return if ArticlePolicy.new(current_user, article).send("#{action_name}?")
+    redirect_to root_path, alert: 'Access denied.'
   end
 end
