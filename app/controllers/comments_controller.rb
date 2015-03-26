@@ -3,9 +3,12 @@ class CommentsController < ApplicationController
 
   respond_to :js
 
+  expose(:article)
+  expose(:comments) { article.comments.includes(:user) }
   expose(:comment, attributes: :comment_params)
 
   def create
+    comment.user = current_user
     comment.save
     respond_with(comment)
   end
@@ -13,6 +16,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :article_id)
+    params.require(:comment).permit(:content)
   end
 end

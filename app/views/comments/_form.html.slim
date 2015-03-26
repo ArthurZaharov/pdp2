@@ -1,8 +1,5 @@
-.row.comments-form
-  = simple_form_for comment, remote: true do |f|
-    .form-inputs
-      = f.input :content, required: true, input_html: { rows: 2 }
-      = f.input :user_id, required: true, as: :hidden, input_html: { value: current_user.try(:id) }
-      = f.input :article_id, required: true, as: :hidden, input_html: { value: article.try(:id) }
-    .form-actions
-      = f.button :submit
+= simple_form_for [article, comment], remote: true do |f|
+  .form-inputs
+    = f.input :content, required: true, input_html: { rows: 2 }
+  .form-actions
+    = f.button :submit

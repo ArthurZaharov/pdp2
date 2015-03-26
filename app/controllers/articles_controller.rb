@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
   expose(:comments_presenter) { CommentPresenter.wrap(comments) }
 
   def create
+    article.user = current_user
     flash[:notice] = I18n.t('app.article.creation_successful') if article.save
     respond_with article
   end
@@ -26,7 +27,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, :user_id)
+    params.require(:article).permit(:title, :content)
   end
 
   def authorize_user!
