@@ -1,13 +1,14 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: %i(new create edit update)
-  before_action :authorize!, only: %i(new create edit update)
+  before_action :authorize_user!, only: %i(edit update)
 
-  respond_to :html, :json
+  respond_to :html
 
   expose(:articles) { Article.includes(:user).page(params[:page]) }
   expose(:article, attributes: :article_params)
   expose(:comment) { article.comments.build }
   expose(:comments) { article.comments.includes(:user) }
+
   expose(:articles_presenter) { ArticlePresenter.wrap(articles) }
   expose(:article_presenter) { ArticlePresenter.wrap(article) }
   expose(:comments_presenter) { CommentPresenter.wrap(comments) }
@@ -28,8 +29,8 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :content, :user_id)
   end
 
-  def authorize!
-    return if ArticlePolicy.new(current_user, article).send("#{action_name}?")
-    redirect_to root_path, alert: 'Access denied.'
+  def authorize_user!
+    return if ArticlePolicy.new(current_user, article).manage?
+    redirect_to(root_url, alert: I18n.t('app.access_denied'))
   end
 end

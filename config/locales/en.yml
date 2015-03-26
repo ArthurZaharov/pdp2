@@ -39,6 +39,7 @@ en:
         new: Didn't receive confirmation instructions?
 
   app:
+    access_denied: 'Access denied.'
     user:
       sign_in:
         title: "Sign in"

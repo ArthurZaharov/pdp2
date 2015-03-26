@@ -2,7 +2,7 @@
   .article
     .row
       h2 = article.title
-      - if ArticlePolicy.new(current_user, article).update?
+      - if ArticlePolicy.new(current_user, article).manage?
         = link_to edit_article_path(article)
           i.fi-pencil
     .row
@@ -13,5 +13,5 @@
     .row
       .comments
         = render 'comments/comments', comments: comments_presenter
-      - if CommentPolicy.new(current_user, comment).create?
+      - if current_user
         = render 'comments/form', comment: comment
