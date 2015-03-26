@@ -2,5 +2,5 @@
   $('.comments').html('<%= j(render "comments/comments", comments_presenter: CommentPresenter.wrap(comments)) %>')
   $('#new_comment')[0].reset()
 <% else %>
-  $('.comments-form').html('<%= escape_javascript(render "comments/form") %>')
+  $('.comments-form').html('<%= j(render "comments/form") %>')
 <% end %>

@@ -16,12 +16,12 @@ class ArticlesController < ApplicationController
   def create
     article.user = current_user
     flash[:notice] = I18n.t('app.article.creation_successful') if article.save
-    respond_with article
+    respond_with(article)
   end
 
   def update
     flash[:notice] = I18n.t('app.article.update_successful') if article.save
-    respond_with article
+    respond_with(article)
   end
 
   private
