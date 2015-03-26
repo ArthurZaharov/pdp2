@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, only: :create
 
-  respond_to :js, :html
+  respond_to :js
 
   expose(:comment, attributes: :comment_params)
 

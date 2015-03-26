@@ -1,5 +1,6 @@
 .container
-  = render 'articles', articles: articles_presenter
+  - articles_presenter.each do |article_presenter|
+    = render('article', article_presenter: article_presenter)
 
   .paginator
     = paginate(articles)

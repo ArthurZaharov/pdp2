@@ -1,17 +1,17 @@
 .container
   .article
     .row
-      h2 = article.title
+      h2 = article_presenter.title
       - if ArticlePolicy.new(current_user, article).manage?
-        = link_to edit_article_path(article)
+        = link_to(edit_article_path(article))
           i.fi-pencil
     .row
-      span.avatar = image_tag article_presenter.user_avatar, size: '18'
-      span.author = article_presenter.author
+      span.avatar = image_tag(article_presenter.user_avatar_url, size: '18')
+      span.posted_by = article_presenter.posted_by
     .row
       p = article_presenter.content
     .row
       .comments
-        = render 'comments/comments', comments: comments_presenter
+        = render('comments/comments', comments_presenter: comments_presenter)
       - if current_user
-        = render 'comments/form', comment: comment
+        = render('comments/form', comment: comment)

@@ -1,17 +1,6 @@
-$('.input').removeClass('error')
-$('small').remove('.error')
-
-<% if comment.errors.any? %>
-  <% comment.errors.each do |attr, message| %>
-    $('.input.comment_<%= attr %>')
-      .addClass('error')
-      .append('<small class="error"><%= comment.errors[attr].first %></small>')
-    <% end %>
-<% else %>
-  var comments_title = $("<h4><%= t('app.comment.title') %></h4>")
-  $('.comments').not(':has(h4)').append(comments_title)
-  $('<%= escape_javascript(render "comment", comment: CommentPresenter.wrap(comment)) %>')
-    .appendTo('.comments')
-
+<% if comment.valid? %>
+  $('<%= escape_javascript(render "comments", comments_presenter: CommentPresenter.wrap(comment.article.comments)) %>').html('.comments')
   $('#new_comment')[0].reset()
+<% else %>
+  $('<%= escape_javascript(render "form", comment: comment) %>').html('#new_comment')
 <% end %>

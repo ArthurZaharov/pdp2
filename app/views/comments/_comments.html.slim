@@ -1,4 +1,7 @@
-- if comments.any?
+- if comments_presenter.any?
   h4 = t('app.comment.title')
-  - comments.each do |comment|
-    = render 'comments/comment', comment: comment
+  - comments_presenter.each do |comment_presenter|
+    .comment
+      span.avatar = image_tag(comment_presenter.user_avatar_url, size: '18')
+      span.poster_by = comment_presenter.posted_by
+      = comment_presenter.content

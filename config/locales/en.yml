@@ -95,12 +95,12 @@ en:
 
     comment:
       title: 'Comments'
-      author: "%{username} posted %{time_ago} ago"
+      posted_by: "%{username} posted %{time_ago} ago"
 
     article:
       create: 'Create article'
       edit: 'Edit article'
-      author: "%{username} posted %{time_ago} ago"
+      posted_by: "%{username} posted %{time_ago} ago"
       creation_successful: 'Article successfully created!'
       update_successful: 'Article successfully updated!'
 
