@@ -9,9 +9,6 @@ class ArticlesController < ApplicationController
   expose(:comment) { article.comments.build }
   expose(:comments) { article.comments.includes(:user) }
 
-  expose(:articles_presenter) { ArticlePresenter.wrap(articles) }
-  expose(:article_presenter) { ArticlePresenter.wrap(article) }
-  expose(:comments_presenter) { CommentPresenter.wrap(comments) }
 
   def create
     article.user = current_user

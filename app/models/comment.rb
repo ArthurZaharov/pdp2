@@ -3,4 +3,8 @@ class Comment < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :article
+
+  def presenter
+    @presenter ||= CommentPresenter.wrap(self)
+  end
 end

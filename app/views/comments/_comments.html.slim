@@ -1,7 +1,7 @@
-- if comments_presenter.any?
+- if comments.any?
   h4 = t('app.comment.title')
-  - comments_presenter.each do |comment_presenter|
+  - comments.each do |comment|
     .comment
-      span.avatar = image_tag(comment_presenter.user_avatar_url, size: '18')
-      span.poster_by = comment_presenter.posted_by
-      = comment_presenter.content
+      span.avatar = image_tag(comment.presenter.user_avatar_url, size: '18')
+      span.posted_by = comment.presenter.posted_by
+      = comment.presenter.content

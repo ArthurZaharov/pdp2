@@ -1,5 +1,5 @@
 <% if comment.valid? %>
-  $('.comments').html('<%= j(render "comments/comments", comments_presenter: CommentPresenter.wrap(comments)) %>')
+  $('.comments').html('<%= j(render "comments/comments") %>')
   $('#new_comment')[0].reset()
 <% else %>
   $('.comments-form').html('<%= j(render "comments/form") %>')

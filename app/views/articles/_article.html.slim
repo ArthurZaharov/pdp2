@@ -1,8 +1,8 @@
 .article
   .row
-    h2 = link_to(article_presenter.title, article_presenter.article)
+    h2 = link_to(article.title, article)
   .row
-    span.avatar = image_tag(article_presenter.user_avatar_url, size: '18')
-    span.posted_by = article_presenter.posted_by
+    span.avatar = image_tag(article.presenter.user_avatar_url, size: '18')
+    span.posted_by = article.presenter.posted_by
   .row
-    = article_presenter.content
+    = article.presenter.content
