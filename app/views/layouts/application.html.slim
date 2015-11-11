@@ -5,20 +5,18 @@ html class="no-js" lang="en"
   head
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta name="robots" content="NOODP,NOYDIR"
 
-    title= title
-
+    = metamagic site: "RailsBase", title: %i(title site), separator: " - "
     = csrf_meta_tags
 
-    /! Le styles
     = stylesheet_link_tag :application
 
-    /! Le modernizr
     = javascript_include_tag "vendor/modernizr"
 
-    / remove this if no need to support ie8
-    /[if lt IE 9]
-      = javascript_include_tag "ie8/nwmatcher-1.2.5-min.js", "ie8/selectivizr-1.0.3b.js", "ie8/respond.min.js"
+    = javascript_tag "window.App = {}"
+
+    == analytics_init if GA.tracker
 
   body
     #root
@@ -27,12 +25,9 @@ html class="no-js" lang="en"
 
       = yield
 
-      #push-footer
-
     = render "footer"
 
-    = javascript_include_tag :application
+    javascript:
+      App.currentUserData = #{raw current_user.to_json};
 
-    / remove this if no need to support ie8
-    /[if lt IE 9]
-      = javascript_include_tag "ie8/rem"
+    = javascript_include_tag :application

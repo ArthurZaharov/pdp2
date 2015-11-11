@@ -1,74 +1,90 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-ruby '2.1.2'
+ruby "2.2.3"
 
-# the most important stuff
-gem 'rails', '4.1.8'
-gem 'pg'
+gem "rails", "4.2.3"
+gem "pg"
 
-# frontend stack: preprocessors, libraries, minifiers, assets
-# plus view stack: helpers, builders, etc.
-gem 'sass-rails', '~> 4.0.0'
-gem 'slim'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'foundation-rails'
-gem 'foundation-icons-sass-rails'
-gem 'compass-rails'
-gem 'jquery-rails'
-gem 'autoprefixer-rails'
-gem 'therubyracer', platforms: :ruby
-gem 'uglifier', '>= 1.3.0'
+# assets
+gem "autoprefixer-rails"
+gem "coffee-rails"
+gem "foundation-icons-sass-rails"
+gem "foundation-rails"
+gem "jquery-rails"
+gem "sass-rails", "~> 5.0.0"
+gem "skim", git: "https://github.com/jfirebaugh/skim"
+gem "therubyracer", platforms: :ruby
+gem "uglifier", ">= 2.7.2"
 
-gem 'simple_form', '~> 3.0.2'
-gem 'active_link_to'
-gem 'title'
-gem 'github-markdown' # only for dashboard controller
+# views
+gem "active_link_to"
+gem "metamagic"
+gem "simple_form"
+gem "slim"
 
 # all other gems
-gem 'devise'
-gem 'decent_exposure'
-gem 'kaminari'
-gem 'rollbar', '~> 0.10.3'
-gem 'seedbank'
-gem 'thin'
+gem "decent_exposure"
+gem "devise"
+gem "google-analytics-rails"
+gem "interactor"
+gem "flamegraph"
+gem "kaminari"
+gem "memory_profiler"
+gem "puma"
+gem "pundit"
+gem "rack-mini-profiler", require: false
+gem "rack-canonical-host"
+gem "responders"
+gem "rollbar"
+gem "seedbank"
+gem "stackprof"
 
 group :staging, :production do
-  gem 'rails_12factor'
+  gem "newrelic_rpm"
+  gem "rails_stdout_logging"
 end
 
 group :test do
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'codeclimate-test-reporter', require: false
-  gem 'database_cleaner'
-  gem 'email_spec'
-  gem 'formulaic'
-  gem 'launchy'
-  gem 'shoulda-matchers'
-  gem 'site_prism'
-  gem 'webmock', require: false
+  gem "capybara"
+  gem "capybara-webkit"
+  gem "codeclimate-test-reporter", require: false
+  gem "database_cleaner"
+  gem "email_spec"
+  gem "formulaic"
+  gem "launchy"
+  gem "shoulda-matchers", require: false
+  gem "webmock", require: false
 end
 
 group :development, :test do
-  gem 'awesome_print'
-  gem 'brakeman', require: false
-  gem 'bundler-audit'
-  gem 'byebug'
-  gem 'dotenv-rails'
-  gem 'factory_girl_rails'
-  gem 'fuubar', '~> 2.0.0.rc1'
-  gem 'pry-rails'
-  gem 'rails_best_practices'
-  gem 'rspec-rails', '~> 3.0'
-  gem 'rubocop'
+  gem "awesome_print"
+  gem "brakeman", require: false
+  gem "bundler-audit", require: false
+  gem "byebug"
+  gem "coffeelint"
+  gem "dotenv-rails"
+  gem "factory_girl_rails"
+  gem "faker"
+  gem "fuubar", "~> 2.0.0.rc1"
+  gem "jasmine", "> 2.0"
+  gem "jasmine-jquery-rails"
+  gem "pry-rails"
+  gem "rails_best_practices", require: false
+  gem "rspec-rails", "~> 3.0"
+  gem "rubocop", require: false
+  gem "rubocop-rspec", require: false
+  gem "scss_lint", require: false
+  gem "slim_lint", require: false
 end
 
 group :development do
-  gem 'bullet'
-  gem 'foreman'
-  gem 'quiet_assets'
-  gem 'letter_opener'
-  gem 'slim-rails'
-  gem 'styleguides'
-  gem 'meta_request'
+  gem "bullet"
+  gem "foreman", require: false
+  gem "letter_opener"
+  gem "quiet_assets"
+  gem "rails-erd"
+  gem "slim-rails"
+  gem "spring"
+  gem "spring-commands-rspec"
+  gem "web-console", "~> 2.0"
 end

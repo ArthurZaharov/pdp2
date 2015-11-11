@@ -1,10 +1,10 @@
-require File.expand_path('../boot', __FILE__)
+require File.expand_path("../boot", __FILE__)
 
-require 'rails/all'
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module RailsBase
   class Application < Rails::Application
@@ -17,18 +17,19 @@ module RailsBase
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
     # config.i18n.default_locale = :de
 
-    # Application specific options
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
 
-    # Slim engine default option, initializers/slim.rb
-    config.slim_options = {}
+    # Enable deflate / gzip compression of controller-generated responses
+    config.middleware.use Rack::Deflater
 
-    # Default e-mail address which will be shown in the "from" devise emails, initializers/devise.rb,
-    config.noreply = 'noreply@morning-sea-2816.herokuapp.com'
+    # Set default From address for all Mailers
+    config.action_mailer.default from: ENV.fetch("MAILER_SENDER_ADDRESS")
 
-    # Default host for action mailer, initializers/mailer.rb
-    config.host = 'localhost:5000'
+    # Set URL options to be able to use url_for helpers
+    config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
   end
 end

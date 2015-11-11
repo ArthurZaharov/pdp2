@@ -1,13 +1,5 @@
 FactoryGirl.define do
-  sequence :email do |n|
-    "somebody#{n}@example.com"
-  end
-
-  sequence :title do |n|
-    "Title ##{n}"
-  end
-
-  sequence :content do |n|
-    "Lorem ipsum #{n}"
-  end
+  sequence(:email) { Faker::Internet.email }
+  sequence(:title) { |n| "#{Faker::Lorem.words} #{n}" }
+  sequence(:content) { |n| "Lorem ipsum #{n}" }
 end

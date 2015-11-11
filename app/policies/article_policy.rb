@@ -1,5 +1,5 @@
 class ArticlePolicy < ApplicationPolicy
   def manage?
-    user == resource.user
+    user == record.user
   end
 end
