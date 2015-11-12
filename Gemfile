@@ -53,6 +53,7 @@ group :test do
   gem "formulaic"
   gem "launchy"
   gem "shoulda-matchers", require: false
+  gem "site_prism"
   gem "webmock", require: false
 end
 
