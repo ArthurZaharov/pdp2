@@ -6,13 +6,13 @@
         = link_to(edit_article_path(article))
           i.fi-pencil
     .row
-      span.avatar = image_tag(article.presenter.user_avatar_url, size: '18')
-      span.posted_by = article.presenter.posted_by
+      span.avatar = image_tag(article.presenter.user_avatar_url, size: "18")
+      span.posted-by = article.presenter.posted_by
     .row
       p = article.presenter.content
     .row
       .comments
-        = render('comments/comments')
+        = render("comments/comments")
       - if current_user
         .row.comments-form
-          = render('comments/form', comment: comment, article: article)
+          = render("comments/form", comment: comment, article: article)

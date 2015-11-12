@@ -1,3 +1,6 @@
+$article-body-color: #808080;
+$article-border-color: #e0e0e0;
+
 .container {
   max-width: 980px;
   margin-right: auto;
@@ -5,11 +8,12 @@
 }
 
 .article {
-  border-bottom: solid 1px #e0e0e0;
   padding: 0 0 20px;
 
+  border-bottom: solid 1px $article-border-color;
+
   &:last-child {
-    border-bottom: none;
+    border-bottom: 0;
   }
 
   h2 {
@@ -17,9 +21,11 @@
   }
 
   i {
-    font-size: 24px;
-    color: gray;
     margin-left: 5px;
+
+    color: $article-body-color;
+
+    font-size: 24px;
   }
 
   p {

@@ -2,7 +2,7 @@
   .row
     h2 = link_to(article.title, article)
   .row
-    span.avatar = image_tag(article.presenter.user_avatar_url, size: '18')
-    span.posted_by = article.presenter.posted_by
+    span.avatar = image_tag(article.presenter.user_avatar_url, size: "18")
+    span.posted-by = article.presenter.posted_by
   .row
     = article.presenter.content
