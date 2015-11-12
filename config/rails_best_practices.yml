@@ -28,6 +28,8 @@ RemoveTrailingWhitespaceCheck: { }
 RemoveUnusedMethodsInControllersCheck:
   except_methods:
   - ApplicationController#devise_parameter_sanitizer
+  - ArticlesController#article_params
+  - CommentsController#comment_params
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: [] }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }

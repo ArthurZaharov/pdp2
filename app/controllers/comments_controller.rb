@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
   def create
     comment.user = current_user
-    comment.save
+    comment.save!
     respond_with(comment)
   end
 

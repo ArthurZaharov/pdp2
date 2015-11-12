@@ -9,10 +9,22 @@ class ArticlesController < ApplicationController
   expose(:comment) { article.comments.build }
   expose(:comments) { article.comments.includes(:user) }
 
+  def index
+  end
+
+  def show
+  end
+
+  def new
+  end
+
   def create
     article.user = current_user
     flash[:notice] = I18n.t("app.article.creation_successful") if article.save
     respond_with(article)
+  end
+
+  def edit
   end
 
   def update
