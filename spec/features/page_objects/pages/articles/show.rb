@@ -3,13 +3,13 @@ module Articles
     include FactoryGirl::Syntax::Methods
     include Formulaic::Dsl
 
-    set_url '/articles{/id}'
+    set_url "/articles{/id}"
 
-    section :top_bar, TopBar, '.top-bar'
+    section :top_bar, TopBar, ".top-bar"
 
-    element :edit_article_link, 'i.fi-pencil'
-    element :create_comment_button, 'input[value="Add Comment"]'
-    element :validation_error_alert, '.error', text: "can't be blank"
+    element :edit_article_link, "i.fi-pencil"
+    element :create_comment_button, "input[value='Add Comment']"
+    element :validation_error_alert, ".error", text: "can't be blank"
 
     def create_comment(options = {})
       fill_form(

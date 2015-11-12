@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Guest user' do
+feature "Guest user" do
   let(:article) { create :article }
   let!(:comment) { create :comment, article: article }
 
@@ -10,11 +10,11 @@ feature 'Guest user' do
     article_page.load(id: article.id)
   end
 
-  scenario 'can view comments' do
+  scenario "can view comments" do
     expect(article_page).to have_text comment.content
   end
 
-  scenario 'does not see create comment form' do
+  scenario "does not see create comment form" do
     expect(article_page).to_not have_create_comment_button
   end
 end

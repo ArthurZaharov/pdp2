@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-feature 'Signed in user' do
+feature "Signed in user" do
   let(:user) { create :user, :confirmed }
 
   let(:login_page) { Devise::Sessions::New.new }
@@ -9,24 +9,24 @@ feature 'Signed in user' do
 
   before(:each) do
     login_page.load
-    login_page.sign_in(user.email, '123456')
+    login_page.sign_in(user.email, "123456")
     new_article_page.load
   end
 
-  scenario 'can create article with valid data' do
+  scenario "can create article with valid data" do
     expect { new_article_page.create }.to change { Article.count }.by(1)
   end
 
-  scenario 'can not create article with invalid data' do
-    new_article_page.create(title: '')
+  scenario "can not create article with invalid data" do
+    new_article_page.create(title: "")
     expect(new_article_page).to have_validation_error_alert
   end
 
-  scenario 'has create new article link' do
+  scenario "has create new article link" do
     expect(new_article_page.top_bar).to have_create_new_article_link
   end
 
-  scenario 'redirected to articles path after create article with successful notice' do
+  scenario "redirected to articles path after create article with successful notice" do
     new_article_page.create
     expect(articles_page).to have_create_successful_notice
   end

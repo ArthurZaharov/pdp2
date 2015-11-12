@@ -4,9 +4,9 @@ module Devise
       include FactoryGirl::Syntax::Methods
       include Formulaic::Dsl
 
-      set_url '/users/sign_up'
+      set_url "/users/sign_up"
 
-      element :sign_up_button, 'input[value="Sign up"]'
+      element :sign_up_button, "input[value='Sign up']"
 
       def register
         fill_form(
