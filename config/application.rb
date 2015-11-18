@@ -31,5 +31,8 @@ module RailsBase
 
     # Set URL options to be able to use url_for helpers
     config.action_mailer.default_url_options = { host: ENV.fetch("HOST") }
+
+    # Add assets paths
+    config.assets.paths << Rails.root.join("vendor", "assets", "bower_components", "angular")
   end
 end

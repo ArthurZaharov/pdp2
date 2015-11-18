@@ -9,6 +9,7 @@
 #= require foundation
 #= require current_user
 #= require skim
+#= require angular
 #= require_tree ../templates
 #= require_tree .
 

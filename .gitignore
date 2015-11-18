@@ -8,7 +8,9 @@ doc/**/*
 vendor/bundle
 vendor/cache
 vendor/ruby
+vendor/assets/bower_components
 .sass-cache
 ._*
 .env
 .pryrc
+public/assets
