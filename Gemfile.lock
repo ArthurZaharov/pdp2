@@ -60,6 +60,7 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bower-rails (0.10.0)
     brakeman (3.1.2)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -399,6 +400,7 @@ DEPENDENCIES
   active_link_to
   autoprefixer-rails
   awesome_print
+  bower-rails
   brakeman
   bullet
   bundler-audit
